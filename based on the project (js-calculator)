@@ -1,0 +1,114 @@
+// 1. Variables practice
+var firstName = 'Thiago';
+let middleName = "da Silva";
+const lastName = 'Gusmao';
+
+let fullNameStr = `My complete name is: ${firstName} ${middleName} ${lastName}`;
+let fullNameConct = firstName + ' ' + middleName + " " + lastName;
+console.log(fullNameStr.substring(2, 4), fullNameConct);
+
+
+// 2. Concatenate two strings in a function
+let femaleName = "Linda";
+let greetingMsg = 'Hi there';
+
+function renderMessage() {
+    const messageToRender = greetingMsg + ", " + femaleName + '!'; 
+    console.log(messageToRender);
+    // OR
+    console.log(greetingMsg + ', ' + femaleName + "!");
+};
+renderMessage();
+
+// *Plus
+const renderGreeting = (varProfile = '', varMsg = "") => {
+    let formattedMsg = `${varMsg}, ${varProfile}!`;
+    return formattedMsg;
+};
+var msgToUser = renderGreeting(femaleName, greetingMsg);
+
+
+// 3. Incrementing and decrementing
+let myPoints = 3;
+
+function add3Points() {
+    myPoints += 3;
+};
+function remove1Point() {
+    myPoints--;
+};
+add3Points();
+add3Points();
+add3Points();
+remove1Point();
+remove1Point();
+console.log(myPoints)
+
+// *Extra
+var calcPoints = function (pointToCalc = 0) {
+    if (pointToCalc < 10) {
+        for (i = pointToCalc; i = 10; i++) {
+            myPoints++;
+    }} else {
+        return myPoints;
+    }
+    return myPoints;
+};
+console.log(calcPoints(myPoints));
+
+
+// 4. Strings and Numbers (Try to predict what each of the lines will 'log out')
+console.log("2" + 2); // "22"
+console.log(11 + 7); // 18
+console.log(6 + "5"); // '65' 
+console.log("My points: " + 5 + 9); // "My points: 14" || 'My points: 59'
+console.log(2 + 2); // 4
+console.log('11' + "14"); // '1114'
+
+
+// 5. Rendering an error message
+let errorMessage = "Something went wrong, please try again";
+
+function renderError() {
+    const pErrorElement = document.getElementById('error');
+    
+    pErrorElement.innerHTML = errorMessage;
+    pErrorElement.textContent = 'Something went wrong, please try again';
+};
+
+// *Bonus (Using Listener-Callback fnc)
+const btnPurchase = document.getElementsByName('button');
+const pElementError = document.querySelector("#error");
+
+btnPurchase = document.addEventListener('dblclick', () => {
+    pElementError.textContent = errorMessage;
+    return pElementError.innerHTML;
+});
+
+
+// 6. Calculator challenge
+let num1 = 2;
+let num2 = 8;
+document.getElementById("num1-el").innerText = num1;
+document.querySelector('#num2-el').innerHTML = num2;
+const resultEl = document.getElementsByClassName("sum-el");
+
+function add() {
+    resultEl.textContent = num1 + num2;
+};
+
+const fncSubtract = (num1, num2) => {
+    let subtraction = num1 - num2;
+    resultEl.innerText = subtraction;
+};
+
+const divideFnc = function () {
+    return resultEl.innerHTML = num1 / num2;
+};
+
+const multiplyFnc = num1 => resultEl.textContent = num1 * num2;
+
+function addFromCourse() {
+    let resultCalc = num1 + num2
+    resultEl.textContent = "Sum: " + resultCalc
+}
